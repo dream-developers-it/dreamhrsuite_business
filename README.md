@@ -1,6 +1,6 @@
-# 🌟 DreamHrSuite.ai Desktop
+# 🌟 DreamHrSuite.ai Business
 
-Welcome to **DreamHrSuite.ai Desktop**, your ultimate employee monitoring solution! 🚀  
+Welcome to **DreamHrSuite.ai Business**, your ultimate employee monitoring solution! 🚀  
 Effortlessly manage, monitor, and enhance your workforce's productivity with an all-in-one platform designed for organizations of all sizes.
 
 ---
@@ -110,5 +110,5 @@ GitHub Issues: dream-developers-it
 ---
 
 ### ©️ Copyright
-DreamHR Suite Desktop © 2024 Dream Developers IT.
+DreamHR Suite Business © 2024 Dream Developers IT.
 All rights reserved. Unauthorized copying, modification, distribution, or use of this software is strictly prohibited without prior consent.
