@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="text-center mb-4">About DreamHR Business</h1>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Our Story</h5>
+                <p class="card-text">
+                    Founded with a vision to revolutionize business solutions, DreamHR Business has been serving clients
+                    with excellence since its inception. Our commitment to quality and innovation sets us apart in the industry.
+                </p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Our Mission</h5>
+                <p class="card-text">
+                    To provide innovative, efficient, and sustainable business solutions that help our clients achieve
+                    their goals and maximize their potential in the ever-evolving business landscape.
+                </p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Our Values</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">✓ Excellence in Service</li>
+                    <li class="mb-2">✓ Innovation and Creativity</li>
+                    <li class="mb-2">✓ Customer-Centric Approach</li>
+                    <li class="mb-2">✓ Integrity and Transparency</li>
+                    <li>✓ Continuous Improvement</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us Today</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
