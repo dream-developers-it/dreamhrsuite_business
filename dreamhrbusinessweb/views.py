@@ -7,13 +7,16 @@ from .models import Contact
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'iLanding/index.html')
 
 def about(request):
     return render(request, 'about.html')
 
 def pricing(request):
     return render(request, 'pricing.html')
+
+def register(request):
+    return render(request, 'register.html')
 
 def contact(request):
     if request.method == 'POST':
@@ -43,6 +46,13 @@ def contact(request):
         except Exception as e:
             messages.error(request, 'There was an error sending your message. Please try again later.')
         
-        return redirect('contact')
+        # Redirect back to the same page with the contact form
+        if request.path == '/contact/':
+            return redirect('contact')
+        return redirect('home')
     
-    return render(request, 'contact.html')
+    # If it's a GET request and the URL is /contact/, render the contact template
+    if request.path == '/contact/':
+        return render(request, 'contact.html')
+    # Otherwise, the form is being accessed from the home page
+    return render(request, 'iLanding/index.html')
