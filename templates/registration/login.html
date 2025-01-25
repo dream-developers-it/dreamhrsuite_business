@@ -1,0 +1,156 @@
+{% extends 'iLanding/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .login-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 100px 0;
+        background-color: #f8f9fa;
+    }
+    .login-container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 450px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .login-header h2 {
+        color: #0ea2bd;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .login-header p {
+        color: #6c757d;
+        font-size: 16px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #495057;
+        font-weight: 500;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    .form-group input:focus {
+        border-color: #0ea2bd;
+        box-shadow: 0 0 0 0.2rem rgba(14, 162, 189, 0.25);
+        outline: none;
+    }
+    .login-btn {
+        background: #0ea2bd;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .login-btn:hover {
+        background: #0c8ca3;
+        transform: translateY(-1px);
+    }
+    .login-footer {
+        text-align: center;
+        margin-top: 25px;
+        color: #6c757d;
+    }
+    .login-footer a {
+        color: #0ea2bd;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .alert.fade-out {
+        opacity: 0;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+</style>
+
+<section class="login-section">
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Welcome Back!</h2>
+                <p>Please sign in to continue</p>
+            </div>
+
+            {% include 'includes/messages.html' %}
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('.alert.auto-close').each(function() {
+                $(this).addClass('fade-out');
+                var $alert = $(this);
+                setTimeout(function() {
+                    $alert.slideUp(300, function() {
+                        $(this).remove();
+                    });
+                }, 500);
+            });
+        }, 3000);
+    });
+</script>
+{% endblock %} 
