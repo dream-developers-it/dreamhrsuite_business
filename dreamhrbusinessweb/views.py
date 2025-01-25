@@ -15,9 +15,6 @@ def about(request):
 def pricing(request):
     return render(request, 'pricing.html')
 
-def register(request):
-    return render(request, 'register.html')
-
 def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -46,13 +43,6 @@ def contact(request):
         except Exception as e:
             messages.error(request, 'There was an error sending your message. Please try again later.')
         
-        # Redirect back to the same page with the contact form
-        if request.path == '/contact/':
-            return redirect('contact')
-        return redirect('home')
+        return redirect('contact')
     
-    # If it's a GET request and the URL is /contact/, render the contact template
-    if request.path == '/contact/':
-        return render(request, 'contact.html')
-    # Otherwise, the form is being accessed from the home page
-    return render(request, 'iLanding/index.html')
+    return render(request, 'contact.html')
