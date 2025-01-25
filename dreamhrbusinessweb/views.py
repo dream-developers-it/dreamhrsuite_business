@@ -7,7 +7,7 @@ from .models import Contact
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'iLanding/index.html')
 
 def about(request):
     return render(request, 'about.html')
