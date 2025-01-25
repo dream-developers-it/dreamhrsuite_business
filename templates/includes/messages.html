@@ -1,0 +1,51 @@
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} auto-close">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<style>
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .alert.fade-out {
+        opacity: 0;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Auto close messages after 3 seconds
+        setTimeout(function() {
+            $('.alert.auto-close').each(function() {
+                $(this).addClass('fade-out');
+                var $alert = $(this);
+                setTimeout(function() {
+                    $alert.slideUp(300, function() {
+                        $(this).remove();
+                    });
+                }, 500);
+            });
+        }, 3000);
+    });
+</script> 

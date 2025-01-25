@@ -1,0 +1,221 @@
+{% extends 'iLanding/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .register-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 100px 0;
+        background-color: #f8f9fa;
+    }
+    .register-container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .register-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .register-header h2 {
+        color: #0ea2bd;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .register-header p {
+        color: #6c757d;
+        font-size: 16px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #495057;
+        font-weight: 500;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    .form-group input:focus {
+        border-color: #0ea2bd;
+        box-shadow: 0 0 0 0.2rem rgba(14, 162, 189, 0.25);
+        outline: none;
+    }
+    .register-btn {
+        background: #0ea2bd;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .register-btn:hover {
+        background: #0c8ca3;
+        transform: translateY(-1px);
+    }
+    .register-footer {
+        text-align: center;
+        margin-top: 25px;
+        color: #6c757d;
+    }
+    .register-footer a {
+        color: #0ea2bd;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .register-footer a:hover {
+        text-decoration: underline;
+    }
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .alert.fade-out {
+        opacity: 0;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    .name-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .helptext {
+        font-size: 12px;
+        color: #6c757d;
+        margin-top: 5px;
+        display: block;
+    }
+    .errorlist {
+        color: #dc3545;
+        font-size: 14px;
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 0;
+    }
+</style>
+
+<section class="register-section">
+    <div class="container">
+        <div class="register-container">
+            <div class="register-header">
+                <h2>Create Account</h2>
+                <p>Join us today! Please fill in your details</p>
+            </div>
+
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} auto-close">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="name-fields">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" required placeholder="Enter your first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" required placeholder="Enter your last name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    {% if form.email.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.email.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" id="password1" name="password1" required placeholder="Create a password">
+                    <span class="helptext">
+                        Password must be at least 8 characters and contain letters and numbers
+                    </span>
+                    {% if form.password1.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password1.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" required placeholder="Confirm your password">
+                    {% if form.password2.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password2.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <button type="submit" class="register-btn">Create Account</button>
+            </form>
+
+            <div class="register-footer">
+                <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Auto close messages after 3 seconds
+        setTimeout(function() {
+            $('.alert.auto-close').each(function() {
+                $(this).addClass('fade-out');
+                var $alert = $(this);
+                setTimeout(function() {
+                    $alert.slideUp(300, function() {
+                        $(this).remove();
+                    });
+                }, 500);
+            });
+        }, 3000);
+    });
+</script>
+{% endblock %} 
