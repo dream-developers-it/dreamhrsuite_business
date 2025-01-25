@@ -124,13 +124,25 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# # Email settings
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = ''  # Add your Gmail address
+# EMAIL_HOST_PASSWORD = ''  # Add your Gmail app password
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP backend
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ''  # Add your Gmail address
-EMAIL_HOST_PASSWORD = ''  # Add your Gmail app password
+EMAIL_HOST_USER = 'sorkerlimon21@gmail.com'
+EMAIL_HOST_PASSWORD = 'mhfk wboh rxob tlot'  # Gmail App Password
+
+# For password reset and other email communications
+DEFAULT_FROM_EMAIL = 'sorkerlimon21@gmail.com'
+SERVER_EMAIL = 'sorkerlimon21@gmail.com'
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
