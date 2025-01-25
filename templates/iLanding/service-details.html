@@ -1,0 +1,69 @@
+{% extends 'iLanding/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="breadcrumb-title">
+        <h2>Service Details</h2>
+        <p>Comprehensive HR Management Solution</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="service-details" class="service-details">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-4">
+          <div class="service-box">
+            <div class="service-item">
+              <h4>Employee Management</h4>
+              <p>Efficiently manage your workforce with our comprehensive employee management system.</p>
+              <a href="#" class="readmore">Learn more <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="service-item">
+              <h4>Payroll Processing</h4>
+              <p>Streamline your payroll operations with our automated payroll processing system.</p>
+              <a href="#" class="readmore">Learn more <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="service-item">
+              <h4>Recruitment</h4>
+              <p>Simplify your hiring process with our advanced recruitment management tools.</p>
+              <a href="#" class="readmore">Learn more <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="service-item">
+              <h4>Performance Management</h4>
+              <p>Track and improve employee performance with our evaluation tools.</p>
+              <a href="#" class="readmore">Learn more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <img src="{% static 'iLanding/img/services.jpg' %}" alt="" class="img-fluid services-img">
+          <h3>Comprehensive HR Management Solution</h3>
+          <p>
+            Our HR management solution is designed to help businesses of all sizes streamline their HR operations and improve employee management. With our comprehensive suite of tools, you can:
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>Manage employee records and documentation</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Process payroll accurately and on time</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Track attendance and leave management</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Conduct performance evaluations</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>Manage recruitment and onboarding</span></li>
+          </ul>
+          <p>
+            With DreamHR Suite, you can focus on what matters most - growing your business and developing your team. Our solution provides you with the tools and insights you need to make informed decisions and create a better workplace environment.
+          </p>
+          <p>
+            Whether you're a small business just starting out or a large enterprise looking to optimize your HR processes, our flexible solution can be customized to meet your specific needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}
