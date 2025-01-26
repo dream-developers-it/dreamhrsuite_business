@@ -36,9 +36,12 @@
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{% static 'assets/img/logo.png' %}" alt=""> -->
-        <h1 class="sitename">DreamHR-Ai</h1>
+        <div class="logo-wrapper">
+          <span class="logo-text">
+            <span class="dream">Dream</span><span class="hr">HR</span><span class="ai">AI</span>
+          </span>
+          <span class="logo-tagline">Intelligent HR Solutions</span>
+        </div>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -48,19 +51,28 @@
           <li><a href="#features">Features</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          {% comment %} <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Case Studies</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </li> {% endcomment %}
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#contact">Get Started</a>
+      {% if user.is_authenticated %}
+        <div class="user-menu">
+          <a href="#" class="user-toggle">
+            <i class="bi bi-person-circle"></i>
+            <span>{{ user.first_name|default:user.email }}</span>
+            <i class="bi bi-chevron-down"></i>
+          </a>
+          <div class="user-dropdown">
+            <a href="{% url 'profile' %}"><i class="bi bi-person"></i>Profile</a>
+            <a href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i>Logout</a>
+          </div>
+        </div>
+      {% else %}
+        <a href="{% url 'login' %}" class="login-button">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      {% endif %}
 
     </div>
   </header>
@@ -136,6 +148,217 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <style>
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .logo-text {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #0061ff, #60efff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo-text .dream {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #2b4eff, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text .hr {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #2196f3, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 2px;
+    }
+
+    .logo-text .ai {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #00bcd4, #1de9b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+      position: relative;
+    }
+
+    .logo-text .ai::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #1de9b6;
+      border-radius: 50%;
+      right: -8px;
+      top: 0;
+      animation: blink 2s infinite;
+    }
+
+    .logo-tagline {
+      font-size: 0.85rem;
+      color: #666;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: -2px;
+      opacity: 0.9;
+      transform: translateX(2px);
+    }
+
+    /* Hover effects */
+    .logo:hover .logo-text {
+      transform: translateY(-2px);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover .logo-tagline {
+      color: #1a73e8;
+      transition: color 0.3s ease;
+    }
+
+    /* Animation for the AI part */
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    .logo-text .ai {
+      animation: pulse 2s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .logo-text {
+        font-size: 1.5rem;
+      }
+      
+      .logo-tagline {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      .logo-tagline {
+        color: #aaa;
+      }
+      
+      .logo:hover .logo-tagline {
+        color: #64b5f6;
+      }
+    }
+
+    /* Navigation Styles */
+    .navmenu ul {
+      display: flex;
+      align-items: center;
+    }
+
+    .login-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      background: #2b4eff;
+      color: white;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .login-button:hover {
+      background: #1a3dff;
+      transform: translateY(-2px);
+    }
+
+    .login-button i {
+      font-size: 18px;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .user-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      color: #444;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .user-toggle:hover {
+      background: rgba(43, 78, 255, 0.1);
+    }
+
+    .user-toggle i {
+      font-size: 18px;
+    }
+
+    .user-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 8px 0;
+      margin-top: 10px;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .user-menu:hover .user-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .user-dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      color: #444;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .user-dropdown a:hover {
+      background: rgba(43, 78, 255, 0.1);
+      color: #2b4eff;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 991px) {
+      .login-button {
+        margin-right: 50px;
+      }
+      
+      .user-menu {
+        margin-right: 50px;
+      }
+    }
+  </style>
 
 </body>
 
