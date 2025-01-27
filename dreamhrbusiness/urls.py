@@ -20,10 +20,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.urls import re_path
+from django.contrib.sitemaps.views import sitemap
+from .sitemap import StaticViewSitemap, DynamicViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'dynamic': DynamicViewSitemap,
+}
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('dreamhr-business/', admin.site.urls),
     path('', include('dreamhrbusinessweb.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     
     # Serve static files in production
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
