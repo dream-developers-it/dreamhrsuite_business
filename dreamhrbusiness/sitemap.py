@@ -1,35 +1,35 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from django.utils import timezone
+from django.conf import settings
 
 class StaticViewSitemap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
-    protocol = 'https'
+    protocol = 'https' if not settings.DEBUG else 'http'
 
     def items(self):
-        # Add all your static pages here
+        # Only include URLs that actually exist in your urls.py
         return [
             'index',
-            'login',
             'about',
-            'features',
-            'services',
             'pricing',
-            'contact'
+            'contact',
+            'login',
+            'register',
+            'profile'
         ]
 
     def location(self, item):
         return reverse(item)
 
     def lastmod(self, item):
-        # Return the last modification date
         return timezone.now()
 
 class DynamicViewSitemap(Sitemap):
     priority = 0.6
     changefreq = 'daily'
-    protocol = 'https'
+    protocol = 'https' if not settings.DEBUG else 'http'
 
     def items(self):
         # Add your dynamic models here if you have any
