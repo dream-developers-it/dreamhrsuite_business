@@ -15,11 +15,11 @@ from django.http import JsonResponse
 def home(request):
     return render(request, 'iLanding/index.html')
 
-def about(request):
-    return render(request, 'about.html')
+# def about(request):
+#     return render(request, 'about.html')
 
-def pricing(request):
-    return render(request, 'pricing.html')
+# def pricing(request):
+#     return render(request, 'pricing.html')
 
 def contact(request):
     if request.method == 'POST':

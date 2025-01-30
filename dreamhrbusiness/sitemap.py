@@ -12,12 +12,12 @@ class StaticViewSitemap(Sitemap):
         # Only include URLs that actually exist in your urls.py
         return [
             'index',
-            'about',
-            'pricing',
+            # 'about',
+            # 'pricing',
             'contact',
             'login',
             'register',
-            'profile'
+            # 'profile'
         ]
 
     def location(self, item):
