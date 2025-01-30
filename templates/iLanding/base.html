@@ -35,7 +35,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center">
         <div class="logo-wrapper">
           <span class="logo-text">
             <span class="dream">Dream</span><span class="hr">HR</span><span class="ai">AI</span>
@@ -350,12 +350,35 @@
 
     /* Mobile Responsive */
     @media (max-width: 991px) {
-      .login-button {
-        margin-right: 50px;
+      .navmenu, .logo-tagline, .login-button span, .user-menu span, .user-menu .bi-chevron-down {
+        display: none;
       }
       
-      .user-menu {
-        margin-right: 50px;
+      .header-container {
+        padding: 10px 15px;
+        justify-content: space-between !important;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+
+      .login-button, .user-menu {
+        padding: 6px;
+        margin: 0;
+      }
+
+      .login-button i, .user-toggle i {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .user-toggle {
+        padding: 0;
+      }
+
+      .user-dropdown {
+        right: 0;
       }
     }
   </style>
