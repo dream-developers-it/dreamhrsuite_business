@@ -61,7 +61,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
           <!-- <li><a href="#about">About</a></li> -->
           <li><a href="#features">Features</a></li>
           <li><a href="#services">Services</a></li>
@@ -406,6 +406,84 @@
 
       .user-dropdown {
         right: 0;
+      }
+    }
+
+    /* Footer Styles */
+    .footer-about .logo span {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #2b4eff, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .footer-about p {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2b4eff, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links ul li a {
+      color: #666;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-links ul li a:hover {
+      color: #2b4eff;
+      padding-left: 5px;
+    }
+
+    .footer-contact p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .footer-contact p strong {
+      color: #2b4eff;
+    }
+
+    /* Copyright Section */
+    .copyright {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .copyright p {
+      color: #666;
+    }
+
+    .copyright strong {
+      background: linear-gradient(135deg, #2b4eff, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .footer-about .logo span {
+        font-size: 1.5rem;
+      }
+      
+      .footer h4 {
+        font-size: 1.1rem;
       }
     }
   </style>
