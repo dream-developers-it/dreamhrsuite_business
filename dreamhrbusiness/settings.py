@@ -26,28 +26,17 @@ SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dreamhrai.com']
-# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dreamhrai.com']
+# Since we're behind Nginx, we need to trust the proxy
+ALLOWED_HOSTS = ['*']
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
 
-# For better SEO and security - only enable in production
-# SSL and security settings temporarily disabled for troubleshooting
-# if not DEBUG:
-#     # Production settings
-#     SECURE_SSL_REDIRECT = False
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_COOKIE_SECURE = True
-#     SECURE_BROWSER_XSS_FILTER = True
-#     SECURE_CONTENT_TYPE_NOSNIFF = True
-#     X_FRAME_OPTIONS = 'DENY'
-#     SECURE_HSTS_SECONDS = 31536000  # 1 year
-#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#     SECURE_HSTS_PRELOAD = True
-# else:
-#     # Development settings
-#     SECURE_SSL_REDIRECT = False
-#     SESSION_COOKIE_SECURE = False
-#     CSRF_COOKIE_SECURE = False
+# Required when running behind Nginx
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Basic security settings that won't interfere with the setup
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Site settings
 SITE_ID = 1
