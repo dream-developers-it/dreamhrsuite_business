@@ -364,7 +364,7 @@
 
     /* Mobile Responsive */
     @media (max-width: 991px) {
-      .navmenu, .logo-tagline, .login-button span, .user-menu span, .user-menu .bi-chevron-down {
+      .navmenu, .logo-tagline, .user-menu span, .user-menu .bi-chevron-down {
         display: none;
       }
       
@@ -377,13 +377,26 @@
         font-size: 1.5rem;
       }
 
-      .login-button, .user-menu {
-        padding: 6px;
-        margin: 0;
+      .login-button {
+        display: flex !important;
+        align-items: center;
+        padding: 8px 20px;
+        background: #2b4eff;
+        color: white !important;
+        border-radius: 50px;
+        margin-left: 10px;
+        text-decoration: none;
       }
 
-      .login-button i, .user-toggle i {
-        font-size: 20px;
+      .login-button span {
+        display: inline-block !important;
+        font-size: 14px;
+        font-weight: 500;
+        color: white !important;
+      }
+
+      .user-menu {
+        padding: 6px;
         margin: 0;
       }
 
