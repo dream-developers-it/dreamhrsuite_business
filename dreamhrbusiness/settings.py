@@ -24,16 +24,29 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Set to True for local development
+DEBUG = False  # Set to True for local development
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dreamhrai.com']
 
 # For better SEO and security - only enable in production
 if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+    # Only enable SSL/HTTPS settings if not using development server
+    import sys
+    if 'runserver' not in sys.argv:
+        SECURE_SSL_REDIRECT = True
+        SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+        SESSION_COOKIE_SECURE = True
+        CSRF_COOKIE_SECURE = True
+        SECURE_BROWSER_XSS_FILTER = True
+        SECURE_CONTENT_TYPE_NOSNIFF = True
+        X_FRAME_OPTIONS = 'DENY'
+        SECURE_HSTS_SECONDS = 31536000  # 1 year
+        SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+        SECURE_HSTS_PRELOAD = True
+    else:
+        SECURE_SSL_REDIRECT = False
+        SESSION_COOKIE_SECURE = False
+        CSRF_COOKIE_SECURE = False
 else:
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
@@ -41,7 +54,7 @@ else:
 
 # Site settings
 SITE_ID = 1
-SITE_NAME = 'DreamHR Suite'
+SITE_NAME = 'dreamhrai'
 SITE_DOMAIN = 'dreamhrai.com' if not DEBUG else 'localhost:8000'
 
 # Application definition
