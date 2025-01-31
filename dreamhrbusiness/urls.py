@@ -22,6 +22,7 @@ urlpatterns = [
     path('dreamhr-business/', admin.site.urls),
     path('', include('dreamhrbusinessweb.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('', include('dreamhrbusinessweb.urls')),
     path('robots.txt', serve_robots_txt, name='robots_txt'),
     
     # Serve static files in production

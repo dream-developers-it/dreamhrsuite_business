@@ -27,7 +27,12 @@ SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#
 DEBUG = False
 
 # Basic production settings
-ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily for troubleshooting
+ALLOWED_HOSTS = ['dreamhrai.com']  # Allow all hosts temporarily for troubleshooting
+
+# Site settings
+SITE_ID = 1
+SITE_NAME = 'dreamhrai'
+SITE_DOMAIN = 'dreamhrai.com'
 
 # Disable all SSL and proxy settings for now
 SECURE_SSL_REDIRECT = False
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',  # Add sitemap support
     'dreamhrbusinessweb',
     'crispy_forms',
     'crispy_bootstrap4',
