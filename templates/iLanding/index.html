@@ -19,13 +19,13 @@
               </div>
 
               <h1 class="mb-4">
-                Employee Management <br>
+                Employee Management <br>Monitoring
                 Solution <br>
-                <span class="accent-text">DreamHR Suite</span>
+                <span class="accent-text">DreamHR-AI</span>
               </h1>
 
               <p class="mb-4 mb-md-5">
-                Simplify your HR management—focus less on tasks and more on growing your team and business. DreamHR Suite has you covered!
+                Simplify your HR management—focus less on tasks and more on growing your team and business. DreamHR-AI has you covered!
               </p>
 
               <div class="hero-buttons">
@@ -40,7 +40,7 @@
 
           <div class="col-lg-6">
             <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-              <img src="static/assets/img/about-5_2.png" alt="Hero Image" class="img-fluid">
+              <img src="{% static "assets/img/employee-monitoring.webp" %} " alt="Hero Image" class="img-fluid">
 
               <!-- <div class="customers-badge">
                 <div class="customer-avatars">
@@ -154,16 +154,17 @@
             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
               <h3>Efficient Employee Management</h3>
               <p class="fst-italic">
-                Streamline your HR operations with our comprehensive employee management system designed for modern workplaces.
+                Get real-time insights to track team availability and productivity
               </p>
               <ul>
-                <li><i class="bi bi-check2-all"></i> <span>Complete employee profile management with detailed information tracking</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Automated attendance and leave management system</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Performance evaluation tools with customizable KPIs and feedback systems</span></li>
+                <li><i class="bi bi-check2-all"></i> <span>See what times of day team members are most active</span></li>
+                <li><i class="bi bi-check2-all"></i> <span>Check progress toward goals and see how it compares to past productivity </span></li>
+                <li><i class="bi bi-check2-all"></i> <span>See team workload and productivity trends over time</span></li>
               </ul>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="static/assets/img/features-illustration-1.webp" alt="" class="img-fluid">
+              {% comment %} <img src="{% static 'assets/img/features-illustration-1.webp' %}" alt="" class="img-fluid"> {% endcomment %}
+              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
             </div>
           </div>
         </div><!-- End tab content item -->
@@ -183,7 +184,8 @@
               </ul>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="static/assets/img/features-illustration-2.webp" alt="" class="img-fluid">
+              {% comment %} <img src="static/assets/img/features-illustration-2.webp" alt="" class="img-fluid"> {% endcomment %}
+              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
             </div>
           </div>
         </div><!-- End tab content item -->
@@ -202,7 +204,8 @@
               </p>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="static/assets/img/features-illustration-3.webp" alt="" class="img-fluid">
+              {% comment %} <img src="static/assets/img/features-illustration-3.webp" alt="" class="img-fluid"> {% endcomment %}
+              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
             </div>
           </div>
         </div><!-- End tab content item -->
@@ -258,415 +261,87 @@
 
   </section><!-- /Features Cards Section -->
 
-  <!-- Features 2 Section -->
-  <!-- <section id="features-2" class="features-2 section">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row align-items-center">
-
-        <div class="col-lg-4">
-
-          <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="200">
-            <div class="d-flex align-items-center justify-content-end gap-4">
-              <div class="feature-content">
-                <h3>Use On Any Device</h3>
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
-              </div>
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-display"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="300">
-            <div class="d-flex align-items-center justify-content-end gap-4">
-              <div class="feature-content">
-                <h3>Feather Icons</h3>
-                <p>Phasellus ullamcorper ipsum rutrum nunc nunc nonummy metus vestibulum volutpat sapien arcu sed augue aliquam erat volutpat.</p>
-              </div>
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-feather"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="400">
-            <div class="d-flex align-items-center justify-content-end gap-4">
-              <div class="feature-content">
-                <h3>Retina Ready</h3>
-                <p>Aenean tellus metus bibendum sed posuere ac mattis non nunc vestibulum fringilla purus sit amet fermentum aenean commodo.</p>
-              </div>
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-eye"></i>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="phone-mockup text-center">
-            <img src="static/assets/img/phone-app-screen.webp" alt="Phone Mockup" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-
-          <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="200">
-            <div class="d-flex align-items-center gap-4">
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-code-square"></i>
-              </div>
-              <div class="feature-content">
-                <h3>W3c Valid Code</h3>
-                <p>Donec vitae sapien ut libero venenatis faucibus nullam quis ante etiam sit amet orci eget eros faucibus tincidunt.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature-item mb-5" data-aos="fade-left" data-aos-delay="300">
-            <div class="d-flex align-items-center gap-4">
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-phone"></i>
-              </div>
-              <div class="feature-content">
-                <h3>Fully Responsive</h3>
-                <p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet adipiscing sem neque sed ipsum.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
-            <div class="d-flex align-items-center gap-4">
-              <div class="feature-icon flex-shrink-0">
-                <i class="bi bi-browser-chrome"></i>
-              </div>
-              <div class="feature-content">
-                <h3>Browser Compatibility</h3>
-                <p>Nullam dictum felis eu pede mollis pretium integer tincidunt cras dapibus vivamus elementum semper nisi aenean vulputate.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </section> -->
-  <!-- /Features 2 Section -->
-
-  <!-- Call To Action Section -->
-  <section id="call-to-action" class="call-to-action section">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row content justify-content-center align-items-center position-relative">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="display-4 mb-4">Get In Touch Us</h2>
-          <p class="mb-4">Have questions or need assistance? We're here to help! Reach out to us anytime, and our team will be happy to assist you.</p>
-          <a href="#contact" class="btn btn-cta">Call To Action</a>
-        </div>
-
-        <!-- Abstract Background Elements -->
-        <div class="shape shape-1">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path d="M47.1,-57.1C59.9,-45.6,68.5,-28.9,71.4,-10.9C74.2,7.1,71.3,26.3,61.5,41.1C51.7,55.9,35,66.2,16.9,69.2C-1.3,72.2,-21,67.8,-36.9,57.9C-52.8,48,-64.9,32.6,-69.1,15.1C-73.3,-2.4,-69.5,-22,-59.4,-37.1C-49.3,-52.2,-32.8,-62.9,-15.7,-64.9C1.5,-67,34.3,-68.5,47.1,-57.1Z" transform="translate(100 100)"></path>
-          </svg>
-        </div>
-
-        <div class="shape shape-2">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path d="M41.3,-49.1C54.4,-39.3,66.6,-27.2,71.1,-12.1C75.6,3,72.4,20.9,63.3,34.4C54.2,47.9,39.2,56.9,23.2,62.3C7.1,67.7,-10,69.4,-24.8,64.1C-39.7,58.8,-52.3,46.5,-60.1,31.5C-67.9,16.4,-70.9,-1.4,-66.3,-16.6C-61.8,-31.8,-49.7,-44.3,-36.3,-54C-22.9,-63.7,-8.2,-70.6,3.6,-75.1C15.4,-79.6,28.2,-58.9,41.3,-49.1Z" transform="translate(100 100)"></path>
-          </svg>
-        </div>
-
-        <!-- Dot Pattern Groups -->
-        <div class="dots dots-1">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <pattern id="dot-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-            </pattern>
-            <rect width="100" height="100" fill="url(#dot-pattern)"></rect>
-          </svg>
-        </div>
-
-        <div class="dots dots-2">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <pattern id="dot-pattern-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-            </pattern>
-            <rect width="100" height="100" fill="url(#dot-pattern-2)"></rect>
-          </svg>
-        </div>
-
-        <div class="shape shape-3">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path d="M43.3,-57.1C57.4,-46.5,71.1,-32.6,75.3,-16.2C79.5,0.2,74.2,19.1,65.1,35.3C56,51.5,43.1,65,27.4,71.7C11.7,78.4,-6.8,78.3,-23.9,72.4C-41,66.5,-56.7,54.8,-65.4,39.2C-74.1,23.6,-75.8,4,-71.7,-13.2C-67.6,-30.4,-57.7,-45.2,-44.3,-56.1C-30.9,-67,-15.5,-74,0.7,-74.9C16.8,-75.8,33.7,-70.7,43.3,-57.1Z" transform="translate(100 100)"></path>
-          </svg>
-        </div>
-      </div>
-
-    </div>
-
-  </section><!-- /Call To Action Section -->
-
-  <!-- Clients Section -->
-  <section id="clients" class="clients section">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": true,
-            "speed": 600,
-            "autoplay": {
-              "delay": 5000
-            },
-            "slidesPerView": "auto",
-            "pagination": {
-              "el": ".swiper-pagination",
-              "type": "bullets",
-              "clickable": true
-            },
-            "breakpoints": {
-              "320": {
-                "slidesPerView": 2,
-                "spaceBetween": 40
-              },
-              "480": {
-                "slidesPerView": 3,
-                "spaceBetween": 60
-              },
-              "640": {
-                "slidesPerView": 4,
-                "spaceBetween": 80
-              },
-              "992": {
-                "slidesPerView": 6,
-                "spaceBetween": 120
-              }
-            }
-          }
-        </script>
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-          <div class="swiper-slide"><img src="static/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-    </div>
-
-  </section><!-- /Clients Section -->
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials section light-background">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>About Us</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row g-5">
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="testimonial-item">
-            <img src="static/assets/img/md limon.jpg" class="testimonial-img" alt="">
-            <h3>MD Limon</h3>
-            <h4>CEO &amp; CO-Founder</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="testimonial-item">
-            <img src="static/assets/img/avatar-1.png" class="testimonial-img" alt="">
-            <h3>S. M. Abrar Shariar</h3>
-            <h4>CTO &amp; CO-Founder</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="testimonial-item">
-            <img src="static/assets/img/sujon tamim.png" class="testimonial-img" alt="">
-            <h3>Sujon Tamim</h3>
-            <h4>CFO</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="testimonial-item">
-            <img src="static/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        </div><!-- End testimonial item -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Testimonials Section -->
-
-  <!-- Stats Section -->
-  <section class="stats-section py-5">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="stats-box p-4 bg-white rounded shadow-sm">
-            <h2 class="counter-number" style="color: #0ea2bd; font-size: 2.5rem; font-weight: bold;">150+</h2>
-            <p class="stats-label" style="color: #6c757d; font-size: 1.1rem; margin: 0;">Clients</p>
-          </div>
-        </div>
-        
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="stats-box p-4 bg-white rounded shadow-sm">
-            <h2 class="counter-number" style="color: #0ea2bd; font-size: 2.5rem; font-weight: bold;">50+</h2>
-            <p class="stats-label" style="color: #6c757d; font-size: 1.1rem; margin: 0;">Projects</p>
-          </div>
-        </div>
-        
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="stats-box p-4 bg-white rounded shadow-sm">
-            <h2 class="counter-number" style="color: #0ea2bd; font-size: 2.5rem; font-weight: bold;">24/7</h2>
-            <p class="stats-label" style="color: #6c757d; font-size: 1.1rem; margin: 0;">Hours Of Support</p>
-          </div>
-        </div>
-        
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="stats-box p-4 bg-white rounded shadow-sm">
-            <h2 class="counter-number" style="color: #0ea2bd; font-size: 2.5rem; font-weight: bold;">500+</h2>
-            <p class="stats-label" style="color: #6c757d; font-size: 1.1rem; margin: 0;">Workers</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <style>
-  .stats-box {
-      transition: transform 0.3s ease;
-  }
-  .stats-box:hover {
-      transform: translateY(-5px);
-  }
-  .counter-number {
-      margin-bottom: 10px;
-  }
-  </style>
-
   <!-- Services Section -->
   <section id="services" class="services section light-background">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Services</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <p>Comprehensive employee monitoring solutions to enhance productivity and efficiency</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="row g-4">
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card d-flex">
-            <div class="icon flex-shrink-0">
-              <i class="bi bi-activity"></i>
+      <div class="row gy-5">
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/time-management-concept-illustration_114360-1013.jpg" class="img-fluid" alt="Real-Time Monitoring">
             </div>
-            <div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div><!-- End Service Card -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card d-flex">
-            <div class="icon flex-shrink-0">
-              <i class="bi bi-diagram-3"></i>
-            </div>
-            <div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-activity"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Real-Time Monitoring</h3>
+              </a>
+              <p>Track employee activities, applications, and websites in real-time for better productivity management</p>
             </div>
           </div>
-        </div><!-- End Service Card -->
+        </div><!-- End Service Item -->
 
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card d-flex">
-            <div class="icon flex-shrink-0">
-              <i class="bi bi-easel"></i>
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/time-management-concept-illustration_114360-1029.jpg" class="img-fluid" alt="Time & Attendance">
             </div>
-            <div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Time & Attendance</h3>
+              </a>
+              <p>Automated time tracking and attendance management with detailed reports and analytics</p>
             </div>
           </div>
-        </div><!-- End Service Card -->
+        </div><!-- End Service Item -->
 
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-card d-flex">
-            <div class="icon flex-shrink-0">
-              <i class="bi bi-clipboard-data"></i>
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/computer-monitor-graphic-animator-creating-video-game-modeling-motion-processing-video-file-using-professional-editor-vector-illustration-graphic-design-art-designer-workplace-concept_74855-13038.jpg" class="img-fluid" alt="Screenshot Monitoring">
             </div>
-            <div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="service-details.html" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-camera"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Screenshot Monitoring</h3>
+              </a>
+              <p>Periodic screenshots to ensure work quality and maintain transparency in remote work environments</p>
             </div>
           </div>
-        </div><!-- End Service Card -->
+        </div><!-- End Service Item -->
 
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/data-analytics-illustration_23-2148688949.jpg" class="img-fluid" alt="Productivity Tracking">
+            </div>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Productivity Tracking</h3>
+              </a>
+              <p>Measure and analyze productivity metrics to optimize workflow and improve team performance</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
       </div>
-
     </div>
-
   </section><!-- /Services Section -->
 
   <!-- Pricing Section -->
@@ -682,11 +357,11 @@
         <!-- Basic Plan -->
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="pricing-card">
-            <h3>Basic Plan</h3>
+            <h3>Basic Plan (Monthly)</h3>
             <div class="price">
               <span class="currency">$</span>
-              <span class="amount">9.9</span>
-              <span class="period">/ month</span>
+              <span class="amount">5</span>
+              <span class="period">5(User)</span>
             </div>
             <p class="description">Perfect for small teams and startups getting started with employee monitoring</p>
             
@@ -706,7 +381,7 @@
               </li>
             </ul>
 
-            <a href="#" class="btn btn-primary">
+            <a href="#contact" class="btn btn-primary">
               Buy Now
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -716,12 +391,12 @@
         <!-- Standard Plan -->
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="pricing-card popular">
-            <div class="popular-badge">Most Popular</div>
-            <h3>Standard Plan</h3>
+            <div class="popular-badge">Most Popular (Monthly)</div>
+            <h3>Standard Plan (Monthly)</h3>
             <div class="price">
               <span class="currency">$</span>
-              <span class="amount">19.9</span>
-              <span class="period">/ month</span>
+              <span class="amount">20</span>
+              <span class="period">25(User)</span>
             </div>
             <p class="description">Advanced features for growing teams who need more monitoring capabilities</p>
 
@@ -745,7 +420,7 @@
               </li>
             </ul>
 
-            <a href="#" class="btn btn-light">
+            <a href="#contact" class="btn btn-light">
               Buy Now
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -758,8 +433,8 @@
             <h3>Premium Plan</h3>
             <div class="price">
               <span class="currency">$</span>
-              <span class="amount">39.9</span>
-              <span class="period">/ month</span>
+              <span class="amount">50</span>
+              <span class="period">/ Unlimited Users</span>
             </div>
             <p class="description">Enterprise-level features for large organizations needing complete monitoring solutions</p>
 
@@ -787,7 +462,7 @@
               </li>
             </ul>
 
-            <a href="#" class="btn btn-primary">
+            <a href="#contact" class="btn btn-primary">
               Contact Sales
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -932,7 +607,7 @@
               </div>
               <div class="content">
                 <h4>Email Address</h4>
-                <p>info@dreamhrai.com</p>
+                <p>contact.dream.developers@gmail.com</p>
               </div>
             </div>
           </div>

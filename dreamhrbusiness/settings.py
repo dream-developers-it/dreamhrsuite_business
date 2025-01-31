@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#
 DEBUG = False
 
 # Basic production settings
-ALLOWED_HOSTS = ['dreamhrai.com']  # Allow all hosts temporarily for troubleshooting
+ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily for troubleshooting
 
 # Site settings
 SITE_ID = 1
