@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os  # Add this at the top
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,22 +26,13 @@ SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# Since we're behind Nginx, we need to trust the proxy
-ALLOWED_HOSTS = ['*']
-USE_X_FORWARDED_HOST = True
-USE_X_FORWARDED_PORT = True
+# Basic production settings
+ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily for troubleshooting
 
-# Required when running behind Nginx
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Basic security settings that won't interfere with the setup
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
-# Site settings
-SITE_ID = 1
-SITE_NAME = 'dreamhrai'
-SITE_DOMAIN = 'dreamhrai.com' if not DEBUG else 'localhost:8000'
+# Disable all SSL and proxy settings for now
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 # Application definition
 
@@ -52,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sitemaps',  # Add this line
     'dreamhrbusinessweb',
     'crispy_forms',
     'crispy_bootstrap4',
@@ -68,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'dreamhrbusiness.urls'
@@ -102,7 +91,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -121,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -132,7 +119,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -162,6 +148,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Whitenoise for static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
