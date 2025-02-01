@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#2563EB" rx="6"/>
+  
+  <!-- DHA text -->
+  <text x="16" y="22" 
+        font-family="Arial Black, Arial, sans-serif" 
+        font-size="14" 
+        font-weight="900" 
+        text-anchor="middle" 
+        fill="white">DHA</text>
+  
+  <!-- AI indicator dot -->
+  <circle cx="24" cy="8" r="3" fill="#FDE047"/>
+</svg>

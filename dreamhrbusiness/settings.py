@@ -12,19 +12,29 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from .env file
+env_path = BASE_DIR / '.env'
+print(f"Looking for .env file at: {env_path}")
+load_dotenv(env_path)
+
+# Print environment variables for debugging
+print("Environment variables loaded:")
+print(f"SLACK_CONTACT_WEBHOOK = {os.getenv('SLACK_CONTACT_WEBHOOK')}")
+print(f"DJANGO_DEBUG = {os.getenv('DJANGO_DEBUG')}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lrrz$2z9s^7_i(azsjjda2n5fz+r=yxo1@nk*7d-8#@(=w+b*#'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 
 # Basic production settings
 ALLOWED_HOSTS = ['*']  # Allow all hosts temporarily for troubleshooting
@@ -140,12 +150,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP backen
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'sorkerlimon21@gmail.com'
-EMAIL_HOST_PASSWORD = 'mhfk wboh rxob tlot'  # Gmail App Password
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # For password reset and other email communications
-DEFAULT_FROM_EMAIL = 'sorkerlimon21@gmail.com'
-SERVER_EMAIL = 'sorkerlimon21@gmail.com'
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+SERVER_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
