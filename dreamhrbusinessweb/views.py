@@ -10,6 +10,9 @@ from django.utils.decorators import method_decorator
 from .forms import UserRegistrationForm, UserLoginForm
 from django.http import JsonResponse
 import requests
+import os
+from pathlib import Path
+import dotenv
 
 # Create your views here.
 
@@ -93,7 +96,22 @@ def contact(request):
     return render(request, 'contact.html')
 
 def send_slack_notification(name, email, subject, message):
-    webhook_url = "https://hooks.slack.com/services/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"
+    webhook_url = os.getenv('SLACK_CONTACT_WEBHOOK')
+    print(f"Contact Webhook URL from env: {webhook_url}")
+    
+    # Reload environment variables to ensure we have the latest
+    from dotenv import load_dotenv
+    env_path = Path(__file__).resolve().parent.parent / '.env'
+    print(f"Reloading .env from: {env_path}")
+    load_dotenv(env_path)
+    
+    # Get the URL again after reload
+    webhook_url = os.getenv('SLACK_CONTACT_WEBHOOK')
+    print(f"Contact Webhook URL after reload: {webhook_url}")
+    
+    if not webhook_url:
+        print("Error: SLACK_CONTACT_WEBHOOK environment variable is not set")
+        return False
     
     slack_message = {
         "text": "New Contact Form Submission",
@@ -119,14 +137,25 @@ def send_slack_notification(name, email, subject, message):
     
     try:
         response = requests.post(webhook_url, json=slack_message)
+        if response.status_code == 404:
+            print(f"Error: Webhook URL not found (404). Please check if the URL is correct.")
+        elif response.status_code != 200:
+            print(f"Error: Slack API returned status code {response.status_code}")
+            print(f"Response text: {response.text}")
         response.raise_for_status()
         return True
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         print(f"Error sending Slack notification: {str(e)}")
+        if hasattr(e.response, 'text'):
+            print(f"Error details: {e.response.text}")
         return False
 
 def send_registration_slack_notification(user):
-    webhook_url = "https://hooks.slack.com/services/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"
+    webhook_url = os.getenv('SLACK_REGISTRATION_WEBHOOK')
+    
+    if not webhook_url:
+        print("Error: SLACK_REGISTRATION_WEBHOOK environment variable is not set")
+        return False
     
     # Get full name or use email if name not provided
     full_name = f"{user.first_name} {user.last_name}".strip()
@@ -139,7 +168,7 @@ def send_registration_slack_notification(user):
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "*🎉 New User Registration*"
+                    "text": "* New User Registration*"
                 }
             },
             {
@@ -154,10 +183,17 @@ def send_registration_slack_notification(user):
     
     try:
         response = requests.post(webhook_url, json=slack_message)
+        if response.status_code == 404:
+            print(f"Error: Webhook URL not found (404). Please check if the URL is correct.")
+        elif response.status_code != 200:
+            print(f"Error: Slack API returned status code {response.status_code}")
+            print(f"Response text: {response.text}")
         response.raise_for_status()
         return True
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         print(f"Error sending registration Slack notification: {str(e)}")
+        if hasattr(e.response, 'text'):
+            print(f"Error details: {e.response.text}")
         return False
 
 class RegisterView(View):

@@ -7,6 +7,10 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>DreamHR-AI - Employee Monitoring & Real-Time Tracking Software</title>
+  
+  <!-- Preload logo -->
+  <link rel="preload" href="{% static 'assets/img/dreamhrai-logo.svg' %}" as="image" type="image/svg+xml">
+  
   <meta name="description" content="DreamHR-AI is a comprehensive employee monitoring and HR portal solution with real-time tracking, screenshots, productivity analysis, and employee engagement tools. Perfect for remote teams and workforce management. Free trial available!">
   
   <!-- SEO Keywords -->
@@ -17,6 +21,16 @@
   <meta property="og:description" content="Complete employee monitoring solution with real-time tracking, screenshots, and productivity analysis. Free trial available! Perfect for remote teams.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dreamhrai.com">
+  <meta property="og:image" content="{% static 'assets/img/dreamhrai-logo.svg' %}">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DreamHR-AI - Employee Monitoring & Real-Time Tracking Software">
+  <meta name="twitter:description" content="Complete employee monitoring solution with real-time tracking, screenshots, and productivity analysis. Free trial available! Perfect for remote teams.">
+  <meta name="twitter:image" content="{% static 'assets/img/dreamhrai-logo.svg' %}">
   
   <!-- Additional SEO Meta Tags -->
   <meta name="robots" content="index, follow">
@@ -26,8 +40,8 @@
   {% include 'iLanding/structured_data.html' %}
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/dd.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/dreamhrai-logo.svg' %}" rel="icon" type="image/svg+xml">
+  <link href="{% static 'assets/img/dreamhrai-logo.svg' %}" rel="apple-touch-icon" type="image/svg+xml">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -54,6 +68,7 @@
         <div class="logo-wrapper">
           <span class="logo-text">
             <span class="dream">Dream</span><span class="hr">HR</span><span class="ai">AI</span>
+            <link href="{% static 'assets/img/dreamhrai-logo.svg' %}" rel="apple-touch-icon" type="image/svg+xml">
           </span>
           <span class="logo-tagline">Intelligent HR Solutions</span>
         </div>
@@ -168,6 +183,14 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    /* Prevent logo flicker */
+    .logo img {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
     }
 
     .logo-text {
