@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
-from .models import Contact
 from django.contrib.auth import login, authenticate, logout
 from django.views import View
 from django.contrib.auth.decorators import login_required
@@ -13,6 +12,8 @@ import requests
 import os
 from pathlib import Path
 import dotenv
+
+from .turnstile import verify_turnstile
 
 # Create your views here.
 
@@ -27,88 +28,86 @@ def home(request):
 
 def contact(request):
     if request.method == 'POST':
+        ok, captcha_error = verify_turnstile(request)
+        if not ok:
+            messages.error(request, captcha_error)
+            return redirect('index')
+
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        # Save to database
-        contact = Contact.objects.create(
-            name=name,
-            email=email,
-            subject=subject,
-            message=message
-        )
+        slack_ok, email_ok = process_contact_submission(name, email, subject, message)
 
-        # Send email
-        email_subject = f'New Contact Form Submission: {subject}'
-        email_message = f"""
-        New contact form submission from {name}:
-
-        Email: {email}
-        Subject: {subject}
-        Message:
-        {message}
-        """
-
-        try:
-            send_mail(
-                email_subject,
-                email_message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],  # Send to admin email
-                fail_silently=False,
-            )
-            
-            # Send confirmation email to user
-            user_subject = 'Thank you for contacting DreamHR-Ai'
-            user_message = f"""
-            Dear {name},
-
-            Thank you for contacting us. We have received your message and will get back to you shortly.
-
-            Your message details:
-            Subject: {subject}
-            Message: {message}
-
-            Best regards,
-            DreamHR-Ai Team
-            """
-            
-            send_mail(
-                user_subject,
-                user_message,
-                settings.DEFAULT_FROM_EMAIL,
-                [email],  # Send to user's email
-                fail_silently=False,
-            )
-
-            # Send Slack notification
-            send_slack_notification(name, email, subject, message)
-
+        if slack_ok or email_ok:
             messages.success(request, 'Your message has been sent successfully!')
-        except Exception as e:
+        else:
             messages.error(request, 'There was an error sending your message. Please try again later.')
-            print(f"Email error: {str(e)}")  # For debugging
 
-        return redirect('index')  # Redirect back to home page
+        return redirect('index')
 
     return render(request, 'contact.html')
 
+def send_contact_emails(name, email, subject, message):
+    """Send admin and user emails; log errors without raising."""
+    email_subject = f'New Contact Form Submission: {subject}'
+    email_message = f"""New contact form submission from {name}:
+
+Email: {email}
+Subject: {subject}
+Message:
+{message}
+"""
+    try:
+        send_mail(
+            email_subject,
+            email_message,
+            settings.DEFAULT_FROM_EMAIL,
+            [settings.DEFAULT_FROM_EMAIL],
+            fail_silently=False,
+        )
+    except Exception as e:
+        print(f"Admin email error: {e}")
+        return False
+
+    user_subject = 'Thank you for contacting DreamHR-Ai'
+    user_message = f"""Dear {name},
+
+Thank you for contacting us. We have received your message and will get back to you shortly.
+
+Your message details:
+Subject: {subject}
+Message: {message}
+
+Best regards,
+DreamHR-Ai Team
+"""
+    try:
+        send_mail(
+            user_subject,
+            user_message,
+            settings.DEFAULT_FROM_EMAIL,
+            [email],
+            fail_silently=False,
+        )
+    except Exception as e:
+        print(f"User confirmation email error: {e}")
+        return False
+
+    return True
+
+
+def process_contact_submission(name, email, subject, message):
+    """Notify Slack and attempt email (independent of each other)."""
+    slack_ok = send_slack_notification(name, email, subject, message)
+    email_ok = send_contact_emails(name, email, subject, message)
+    return slack_ok, email_ok
+
+
 def send_slack_notification(name, email, subject, message):
     webhook_url = os.getenv('SLACK_CONTACT_WEBHOOK')
-    print(f"Contact Webhook URL from env: {webhook_url}")
-    
-    # Reload environment variables to ensure we have the latest
-    from dotenv import load_dotenv
-    env_path = Path(__file__).resolve().parent.parent / '.env'
-    print(f"Reloading .env from: {env_path}")
-    load_dotenv(env_path)
-    
-    # Get the URL again after reload
-    webhook_url = os.getenv('SLACK_CONTACT_WEBHOOK')
-    print(f"Contact Webhook URL after reload: {webhook_url}")
-    
+
     if not webhook_url:
         print("Error: SLACK_CONTACT_WEBHOOK environment variable is not set")
         return False
@@ -251,68 +250,25 @@ class ProfileView(View):
 
 def index(request):
     if request.method == 'POST':
+        ok, captcha_error = verify_turnstile(request)
+        if not ok:
+            return JsonResponse({'success': False, 'error': captcha_error}, status=400)
+
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
         try:
-            # Save to database
-            contact = Contact.objects.create(
-                name=name,
-                email=email,
-                subject=subject,
-                message=message
-            )
-
-            # Send email to admin
-            email_subject = f'New Contact Form Submission: {subject}'
-            email_message = f"""
-            New contact form submission from {name}:
-
-            Email: {email}
-            Subject: {subject}
-            Message:
-            {message}
-            """
-
-            send_mail(
-                email_subject,
-                email_message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],
-                fail_silently=False,
-            )
-            
-            # Send confirmation email to user
-            user_subject = 'Thank you for contacting DreamHR-Ai'
-            user_message = f"""
-            Dear {name},
-
-            Thank you for contacting us. We have received your message and will get back to you shortly.
-
-            Your message details:
-            Subject: {subject}
-            Message: {message}
-
-            Best regards,
-            DreamHR-Ai Team
-            """
-            
-            send_mail(
-                user_subject,
-                user_message,
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-                fail_silently=False,
-            )
-
-            # Send Slack notification
-            send_slack_notification(name, email, subject, message)
-
-            return JsonResponse({'success': True})
+            slack_ok, email_ok = process_contact_submission(name, email, subject, message)
+            if slack_ok or email_ok:
+                return JsonResponse({'success': True})
+            return JsonResponse({
+                'success': False,
+                'error': 'Unable to deliver your message. Please try again later.',
+            })
         except Exception as e:
-            print(f"Error: {str(e)}")
+            print(f"Contact submission error: {e}")
             return JsonResponse({'success': False})
 
     return render(request, 'iLanding/index.html')

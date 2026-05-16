@@ -21,7 +21,6 @@
               <h1 class="mb-4">
                 Employee Management <br>Monitoring
                 Solution <br>
-                <span class="accent-text">DreamHR-AI</span>
               </h1>
 
               <p class="mb-4 mb-md-5">
@@ -98,108 +97,136 @@
 
 
 
-    <!-- Features Section -->
-    <section id="features" class="features section">
+    <!-- Workflow / Features Section -->
+    <section id="features" class="workflow-transition section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>DreamHRSuite is a comprehensive HR management solution.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="d-flex justify-content-center">
-
-          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-            <li class="nav-item">
-              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                <h4>Management</h4>
-              </a>
-            </li><!-- End tab nav item -->
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                <h4>Monitoring</h4>
-              </a><!-- End tab nav item -->
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-              <h4>Processing</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-        </ul>
-
+        <h2>How DreamHR-AI Works</h2>
+        <p>Remote employees send live activity data → DreamHR-AI analyzes it → managers get clear, actionable insights.</p>
       </div>
 
-      <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="workflow-diagram">
 
-        <div class="tab-pane fade active show" id="features-tab-1">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-              <h3>Efficient Employee Management</h3>
-              <p class="fst-italic">
-                Get real-time insights to track team availability and productivity
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span>See what times of day team members are most active</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Check progress toward goals and see how it compares to past productivity </span></li>
-                <li><i class="bi bi-check2-all"></i> <span>See team workload and productivity trends over time</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
+          <div class="workflow-users" aria-hidden="true">
+            <span class="workflow-users-label">Remote team</span>
+            <div class="workflow-user-stack">
+              <div class="workflow-user workflow-user--1" style="--user-delay: 0s"><i class="bi bi-person-fill"></i></div>
+              <div class="workflow-user workflow-user--2" style="--user-delay: 0.5s"><i class="bi bi-person-fill"></i></div>
+              <div class="workflow-user workflow-user--3" style="--user-delay: 1s"><i class="bi bi-person-fill"></i></div>
             </div>
           </div>
-        </div><!-- End tab content item -->
 
-        <div class="tab-pane fade" id="features-tab-2">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-              <h3>Real-time Employee Monitoring</h3>
-              <p class="fst-italic">
-                Track and analyze employee activities with our advanced monitoring tools to enhance productivity and security.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span>Real-time screen monitoring and activity tracking</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Application and website usage monitoring with detailed reports</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Productivity analysis with time tracking and task management</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Automated screenshots and activity logs for better oversight</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
+          <div class="workflow-stream workflow-stream--in" aria-hidden="true">
+            <svg class="workflow-stream-svg" viewBox="0 0 120 280" preserveAspectRatio="none">
+              <path class="stream-path" d="M8 24 C45 24 55 38 112 38"></path>
+              <path class="stream-path" d="M8 78 C48 78 58 78 112 78"></path>
+              <path class="stream-path" d="M8 132 C50 132 60 132 112 132"></path>
+              <path class="stream-path" d="M8 186 C45 186 55 172 112 172"></path>
+              <path class="stream-path" d="M8 240 C48 240 58 252 112 252"></path>
+            </svg>
+            <span class="workflow-packet" style="--packet-y: 14%; --packet-delay: 0s"></span>
+            <span class="workflow-packet" style="--packet-y: 32%; --packet-delay: 0.55s"></span>
+            <span class="workflow-packet" style="--packet-y: 50%; --packet-delay: 1.1s"></span>
+            <span class="workflow-packet" style="--packet-y: 68%; --packet-delay: 1.65s"></span>
+            <span class="workflow-packet" style="--packet-y: 86%; --packet-delay: 2.2s"></span>
+          </div>
+
+          <div class="workflow-col workflow-col--input">
+            <p class="workflow-label">Everyday Activities</p>
+            <div class="workflow-cards workflow-cards--five">
+              <div class="workflow-card workflow-card--pulse workflow-card--compact" data-card="0" data-aos="fade-right" data-aos-delay="100">
+                <span class="workflow-card__icon workflow-card__icon--orange"><i class="bi bi-graph-up-arrow"></i></span>
+                <p class="workflow-card__text">Computer Activity</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse workflow-card--compact" data-card="1" data-aos="fade-right" data-aos-delay="150">
+                <span class="workflow-card__icon workflow-card__icon--orange"><i class="bi bi-calendar-check"></i></span>
+                <p class="workflow-card__text">Time &amp; Attendance Data</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse workflow-card--compact" data-card="2" data-aos="fade-right" data-aos-delay="200">
+                <span class="workflow-card__icon workflow-card__icon--orange"><i class="bi bi-kanban"></i></span>
+                <p class="workflow-card__text">Time on Projects &amp; Tasks</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse workflow-card--compact" data-card="3" data-aos="fade-right" data-aos-delay="250">
+                <span class="workflow-card__icon workflow-card__icon--orange"><i class="bi bi-display"></i></span>
+                <p class="workflow-card__text">Live View</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse workflow-card--compact" data-card="4" data-aos="fade-right" data-aos-delay="300">
+                <span class="workflow-card__icon workflow-card__icon--orange"><i class="bi bi-shield-lock"></i></span>
+                <p class="workflow-card__text">Employee Control</p>
+              </div>
             </div>
           </div>
-        </div><!-- End tab content item -->
 
-        <div class="tab-pane fade" id="features-tab-3">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-              <h3>Smart Data Processing & Analytics</h3>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span>Automated payroll processing with attendance integration</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Advanced reporting tools with customizable templates</span></li>
-                <li><i class="bi bi-check2-all"></i> <span>Data-driven insights for better decision making</span></li>
-              </ul>
-              <p class="fst-italic">
-                Transform raw data into actionable insights with our powerful processing tools and analytical capabilities.
-              </p>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="{% static 'assets/img/employee-monitoring.webp' %}" alt="" class="img-fluid">
+          <div class="workflow-col workflow-col--center">
+            <p class="workflow-label">Analyzes Your Work Data</p>
+            <div class="workflow-center-row">
+              <div class="workflow-flow-lane" aria-hidden="true">
+                <span class="workflow-flow-dot"></span><span class="workflow-flow-dot"></span><span class="workflow-flow-dot"></span>
+              </div>
+              <div class="workflow-hub-wrap">
+                <div class="workflow-beam" aria-hidden="true"></div>
+                <div class="workflow-orbit workflow-orbit--outer" aria-hidden="true">
+                  <span class="workflow-orbit-dot"></span>
+                  <span class="workflow-orbit-dot workflow-orbit-dot--2"></span>
+                  <span class="workflow-orbit-dot workflow-orbit-dot--3"></span>
+                </div>
+                <div class="workflow-orbit workflow-orbit--inner" aria-hidden="true">
+                  <span class="workflow-orbit-dot"></span>
+                </div>
+                <div class="workflow-hub-core" aria-hidden="true">
+                  <div class="workflow-wave">
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="workflow-flow-lane workflow-flow-lane--out" aria-hidden="true">
+                <span class="workflow-flow-dot"></span><span class="workflow-flow-dot"></span><span class="workflow-flow-dot"></span>
+              </div>
             </div>
           </div>
-        </div><!-- End tab content item -->
 
+          <div class="workflow-col workflow-col--output">
+            <p class="workflow-label">More Effective People Management</p>
+            <div class="workflow-cards">
+              <div class="workflow-card workflow-card--pulse-out" data-card="0" data-aos="fade-left" data-aos-delay="100">
+                <span class="workflow-card__icon workflow-card__icon--teal"><i class="bi bi-gear-wide-connected"></i></span>
+                <p class="workflow-card__text">Optimized Processes</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse-out" data-card="1" data-aos="fade-left" data-aos-delay="200">
+                <span class="workflow-card__icon workflow-card__icon--teal"><i class="bi bi-display"></i></span>
+                <p class="workflow-card__text">Streamlined Technology Usage</p>
+              </div>
+              <div class="workflow-card workflow-card--pulse-out" data-card="2" data-aos="fade-left" data-aos-delay="300">
+                <span class="workflow-card__icon workflow-card__icon--teal"><i class="bi bi-shield-check"></i></span>
+                <p class="workflow-card__text">Strengthen Security &amp; Trust</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="workflow-stream workflow-stream--out" aria-hidden="true">
+            <svg class="workflow-stream-svg" viewBox="0 0 120 200" preserveAspectRatio="none">
+              <path class="stream-path" d="M8 42 C55 42 65 28 112 28"></path>
+              <path class="stream-path" d="M8 100 L112 100"></path>
+              <path class="stream-path" d="M8 158 C55 158 65 172 112 172"></path>
+            </svg>
+            <span class="workflow-packet workflow-packet--teal" style="--packet-y: 21%; --packet-delay: 0.3s"></span>
+            <span class="workflow-packet workflow-packet--teal" style="--packet-y: 50%; --packet-delay: 1s"></span>
+            <span class="workflow-packet workflow-packet--teal" style="--packet-y: 79%; --packet-delay: 1.7s"></span>
+          </div>
+
+          <div class="workflow-users workflow-users--managers" aria-hidden="true">
+            <span class="workflow-users-label">Managers</span>
+            <div class="workflow-user-stack">
+              <div class="workflow-user workflow-user--m1" style="--user-delay: 0.2s"><i class="bi bi-person-badge"></i></div>
+              <div class="workflow-user workflow-user--m2" style="--user-delay: 0.6s"><i class="bi bi-person-badge"></i></div>
+              <div class="workflow-user workflow-user--m3" style="--user-delay: 1s"><i class="bi bi-person-badge"></i></div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-    </div>
-
-  </section><!-- /Features Section -->
+    </section><!-- /Workflow Section -->
 
   <!-- Features Cards Section -->
   <section id="features-cards" class="features-cards section">
@@ -208,15 +235,23 @@
 
       <div class="row gy-4">
 
-        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
           <div class="feature-box orange">
             <i class="bi bi-award"></i>
             <h4>Employee Monitoring</h4>
             <p>Real-time activity tracking and productivity analysis for better workforce management</p>
           </div>
-        </div><!-- End Feature Borx-->
+        </div>
 
-        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+          <div class="feature-box teal">
+            <i class="bi bi-display"></i>
+            <h4>Real-Time User View</h4>
+            <p>Live view of remote users during in-shift hours — see their screen while they are on the clock</p>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
           <div class="feature-box blue">
             <i class="bi bi-patch-check"></i>
             <h4>Time Management</h4>
@@ -224,7 +259,15 @@
           </div>
         </div><!-- End Feature Borx-->
 
-        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="250">
+          <div class="feature-box purple">
+            <i class="bi bi-shield-lock"></i>
+            <h4>Employee Control</h4>
+            <p>Manage roles, permissions, shift access, and remote user policies from one dashboard</p>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
           <div class="feature-box green">
             <i class="bi bi-sunrise"></i>
             <h4>Performance Analytics</h4>
@@ -232,7 +275,7 @@
           </div>
         </div><!-- End Feature Borx-->
 
-        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="350">
           <div class="feature-box red">
             <i class="bi bi-shield-check"></i>
             <h4>Data Security</h4>
@@ -252,7 +295,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Services</h2>
-      <p>Comprehensive employee monitoring solutions to enhance productivity and efficiency</p>
+      <p>Live remote viewing, employee control, monitoring, payroll, and more — all in one platform</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -264,13 +307,24 @@
               <img src="https://img.freepik.com/free-vector/time-management-concept-illustration_114360-1013.jpg" class="img-fluid" alt="Real-Time Monitoring">
             </div>
             <div class="details position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
               <a href="#" class="stretched-link">
                 <h3>Real-Time Monitoring</h3>
               </a>
               <p>Track employee activities, applications, and websites in real-time for better productivity management</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="250">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/remote-work-concept-illustration_114360-1616.jpg" class="img-fluid" alt="Real-Time User View">
+            </div>
+            <div class="details position-relative">
+              <a href="#" class="stretched-link">
+                <h3>Real-Time User View</h3>
+              </a>
+              <p>Watch remote employees live during in-shift hours — stream their screen in real time while they are on the clock</p>
             </div>
           </div>
         </div><!-- End Service Item -->
@@ -281,9 +335,6 @@
               <img src="https://img.freepik.com/free-vector/time-management-concept-illustration_114360-1029.jpg" class="img-fluid" alt="Time & Attendance">
             </div>
             <div class="details position-relative">
-              <div class="icon">
-                <i class="bi bi-clock-history"></i>
-              </div>
               <a href="#" class="stretched-link">
                 <h3>Time & Attendance</h3>
               </a>
@@ -298,9 +349,6 @@
               <img src="https://img.freepik.com/free-vector/computer-monitor-graphic-animator-creating-video-game-modeling-motion-processing-video-file-using-professional-editor-vector-illustration-graphic-design-art-designer-workplace-concept_74855-13038.jpg" class="img-fluid" alt="Screenshot Monitoring">
             </div>
             <div class="details position-relative">
-              <div class="icon">
-                <i class="bi bi-camera"></i>
-              </div>
               <a href="#" class="stretched-link">
                 <h3>Screenshot Monitoring</h3>
               </a>
@@ -315,13 +363,52 @@
               <img src="https://img.freepik.com/free-vector/data-analytics-illustration_23-2148688949.jpg" class="img-fluid" alt="Productivity Tracking">
             </div>
             <div class="details position-relative">
-              <div class="icon">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
               <a href="#" class="stretched-link">
                 <h3>Productivity Tracking</h3>
               </a>
               <p>Measure and analyze productivity metrics to optimize workflow and improve team performance</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/payroll-concept-illustration_114360-7431.jpg" class="img-fluid" alt="Payroll Management">
+            </div>
+            <div class="details position-relative">
+              <a href="#" class="stretched-link">
+                <h3>Payroll Management</h3>
+              </a>
+              <p>Automate salary processing, tax calculations, and payslip generation with accurate, timely payroll runs</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="700">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/project-management-concept-illustration_114360-1094.jpg" class="img-fluid" alt="Project & Task Management">
+            </div>
+            <div class="details position-relative">
+              <a href="#" class="stretched-link">
+                <h3>Project & Task Management</h3>
+              </a>
+              <p>Plan projects, assign tasks, set deadlines, and track progress across teams from one centralized workspace</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="800">
+          <div class="service-item">
+            <div class="img">
+              <img src="https://img.freepik.com/free-vector/team-work-process-concept-illustration_114360-1554.jpg" class="img-fluid" alt="Employee Control">
+            </div>
+            <div class="details position-relative">
+              <a href="#" class="stretched-link">
+                <h3>Employee Control</h3>
+              </a>
+              <p>Control roles, permissions, shift-based access, and remote user policies — who can be viewed live and when</p>
             </div>
           </div>
         </div><!-- End Service Item -->
@@ -338,58 +425,37 @@
     </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row g-4 justify-content-center">
-        <!-- Basic Plan -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="pricing-card">
-            <h3>Basic Plan (Monthly)</h3>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="amount">5</span>
-              <span class="period">5(User)</span>
-            </div>
-            <p class="description">Perfect for small teams and startups getting started with employee monitoring</p>
-            
-            <h4>Featured Included:</h4>
-            <ul class="features-list">
-              <li>
-                <i class="bi bi-check-circle-fill"></i>
-                Basic activity monitoring
-              </li>
-              <li>
-                <i class="bi bi-check-circle-fill"></i>
-                5 screenshots per hour
-              </li>
-              <li>
-                <i class="bi bi-check-circle-fill"></i>
-                Time tracking & attendance
-              </li>
-            </ul>
-
-            <a href="#contact" class="btn btn-primary">
-              Buy Now
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+      <div class="row g-4 justify-content-center pricing-plans">
 
         <!-- Standard Plan -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="pricing-card popular">
-            <div class="popular-badge">Most Popular (Monthly)</div>
-            <h3>Standard Plan (Monthly)</h3>
+            <div class="popular-badge">Most Popular</div>
+            <h3>Standard Plan</h3>
             <div class="price">
               <span class="currency">$</span>
-              <span class="amount">20</span>
-              <span class="period">25(User)</span>
+              <span class="amount">50</span>
+              <span class="period">/ month · Up to 20 users</span>
             </div>
-            <p class="description">Advanced features for growing teams who need more monitoring capabilities</p>
+            <p class="description">Full HR monitoring for growing teams — includes up to 20 users and all core features.</p>
 
-            <h4>Featured Included:</h4>
+            <h4>Features included:</h4>
             <ul class="features-list">
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                Everything in Basic
+                Up to 20 users
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Real-time activity monitoring
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Real-time user live view (in-shift)
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Employee control (roles &amp; permissions)
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
@@ -397,11 +463,15 @@
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                App & website tracking
+                App &amp; website tracking
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
                 Productivity analytics
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Time tracking &amp; attendance
               </li>
             </ul>
 
@@ -412,18 +482,20 @@
           </div>
         </div>
 
-        <!-- Premium Plan -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="pricing-card">
-            <h3>Premium Plan</h3>
+        <!-- Premium Plan (Customize) -->
+        <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-card pricing-card--custom">
+            <div class="popular-badge popular-badge--custom">Customize</div>
+            <h3>Premium Plan (Customize)</h3>
             <div class="price">
+              <span class="price-label">From</span>
               <span class="currency">$</span>
-              <span class="amount">50</span>
-              <span class="period">/ Unlimited Users</span>
+              <span class="amount">100</span>
+              <span class="period">/ month minimum · Unlimited users</span>
             </div>
-            <p class="description">Enterprise-level features for large organizations needing complete monitoring solutions</p>
+            <p class="description">Enterprise package tailored to your workflow — pricing starts at $100/month based on your requirements.</p>
 
-            <h4>Featured Included:</h4>
+            <h4>Features included:</h4>
             <ul class="features-list">
               <li>
                 <i class="bi bi-check-circle-fill"></i>
@@ -431,15 +503,23 @@
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                Advanced security features
+                Unlimited users
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                Custom integration options
+                Custom modules &amp; workflows
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                API access
+                API access &amp; integrations
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Advanced security &amp; compliance
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Dedicated account manager
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
@@ -453,6 +533,7 @@
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -644,6 +725,32 @@
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                 </div>
 
+                {% if turnstile_site_key %}
+                <div class="col-12 d-flex justify-content-center py-2">
+                  <div id="contact-turnstile"></div>
+                </div>
+                <script>
+                (function () {
+                  var siteKey = "{{ turnstile_site_key|escapejs }}";
+                  var widgetId = null;
+
+                  window.renderContactTurnstile = function () {
+                    if (typeof turnstile === "undefined") return;
+                    var container = document.getElementById("contact-turnstile");
+                    if (!container || container.dataset.rendered === "1") return;
+                    widgetId = turnstile.render("#contact-turnstile", { sitekey: siteKey });
+                    container.dataset.rendered = "1";
+                  };
+
+                  window.resetContactTurnstile = function () {
+                    if (typeof turnstile === "undefined" || widgetId === null) return;
+                    turnstile.reset(widgetId);
+                  };
+                })();
+                </script>
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" onload="window.renderContactTurnstile()"></script>
+                {% endif %}
+
                 <div class="col-12">
                   <div class="alert alert-success" id="successMessage" role="alert">
                       Your message has been sent successfully! We'll get back to you soon.
@@ -769,17 +876,25 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const spinner = submitBtn.querySelector('.spinner-border');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
+    const turnstileEnabled = {{ turnstile_site_key|yesno:"true,false" }};
+    const defaultErrorText = errorMessage.textContent;
     
     // Hide any existing messages
     successMessage.style.display = 'none';
     errorMessage.style.display = 'none';
+    errorMessage.textContent = defaultErrorText;
+    
+    const formData = new FormData(form);
+
+    if (turnstileEnabled && !formData.get('cf-turnstile-response')) {
+        errorMessage.textContent = 'Please complete the security check.';
+        errorMessage.style.display = 'block';
+        return;
+    }
     
     // Show spinner and disable button
     spinner.style.display = 'inline-block';
     submitBtn.disabled = true;
-    
-    // Get form data
-    const formData = new FormData(form);
     
     // Send form data using fetch
     fetch('', {
@@ -799,9 +914,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             successMessage.style.display = 'block';
             // Clear form
             form.reset();
+            if (turnstileEnabled && typeof window.resetContactTurnstile === 'function') {
+                window.resetContactTurnstile();
+            }
         } else {
-            // Show error message
+            errorMessage.textContent = data.error || defaultErrorText;
             errorMessage.style.display = 'block';
+            if (turnstileEnabled && typeof window.resetContactTurnstile === 'function') {
+                window.resetContactTurnstile();
+            }
         }
     })
     .catch(error => {
